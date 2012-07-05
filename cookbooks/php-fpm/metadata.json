@@ -1,0 +1,36 @@
+{
+    "maintainer_email": "wik@rentasite.com.ua",
+    "recipes": {
+      "php-fpm": "Installs php-fpm"
+    },
+    "groupings": {
+    },
+    "recommendations": {
+    },
+    "description": "Installs and maintain php-fpm sapi",
+    "attributes": {
+    },
+    "suggestions": {
+    },
+    "dependencies": {
+      "dotdeb": [
+
+      ]
+    },
+    "platforms": {
+      "debian": [
+
+      ]
+    },
+    "conflicting": {
+    },
+    "long_description": "",
+    "version": "0.1.0",
+    "providing": {
+    },
+    "name": "php-fpm",
+    "license": "Apache 2.0",
+    "maintainer": "Yevgeniy Viktorov",
+    "replacing": {
+    }
+  }
