@@ -1,0 +1,17 @@
+{
+  "run_list": [
+    "recipe[apt]",
+    "recipe[users]",
+
+    "recipe[openssh]",
+    "recipe[git]",
+
+    "recipe[common]",
+    "recipe[python-ircd]",
+    "recipe[algo]"
+  ],
+
+  "supervisor": {
+    "version": "3.0a12"
+  }
+}

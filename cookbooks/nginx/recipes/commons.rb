@@ -63,4 +63,3 @@ template "#{node['nginx']['dir']}/sites-available/default" do
 end
 
 nginx_site 'default'
-nginx_site 'phpmyadmin'
