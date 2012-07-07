@@ -2,8 +2,10 @@
   "run_list": [
     "recipe[apt]",
     "recipe[users]",
+    "recipe[screen]",
 
     "recipe[openssh]",
+    "recipe[phpmyadmin]",
     "recipe[git]",
 
     "recipe[common]",
@@ -16,8 +18,12 @@
   },
 
   "mysql": {
-    "server_root_password": "foobar",
-    "server_repl_password": "foobar",
-    "server_debian_password": "foobar"
+    "server_root_password": "replaced_in_production",
+    "server_repl_password": "replaced_in_production",
+    "server_debian_password": "replaced_in_production"
+  },
+
+  "formbuilder": {
+    "mysql_password": "replaced_in_production"
   }
 }
