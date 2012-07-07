@@ -18,6 +18,12 @@ firewall "ufw" do
   action :enable
 end
 
+cookbook_file '/etc/ssh/sshd_config' do
+  source 'sshd_config'
+  mode '644'
+  notifies :reload, resources(:service => 'ssh')
+end
+
 firewall_rule "ssh" do
   port 22
   protocol :tcp
