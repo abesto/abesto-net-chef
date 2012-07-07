@@ -40,3 +40,9 @@ supervisor_service 'python-ircd' do
   directory dir  
   redirect_stderr true
 end
+
+firewall_rule 'python-ircd' do
+  protocol :tcp
+  port 6667
+  action :allow
+end
