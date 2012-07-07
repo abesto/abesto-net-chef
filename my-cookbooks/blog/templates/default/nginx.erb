@@ -1,21 +1,36 @@
+# Based on http://wiki.nginx.org/WordPress
+upstream php {
+        server 127.0.0.1:9000;
+}
+ 
 server {
-	server_name     abesto.net;
-	access_log      /var/log/nginx/blog.access.log;
-	error_log      /var/log/nginx/blog.error.log;
-	listen      80; 
-
-	root    /srv/blog;
-	index   index.php;
-
-	location / { 
-		try_files $uri $uri/ index.php;
-	}   
-
-	location ~ \.php$ {
-		fastcgi_pass    127.0.0.1:9000;
-		include fastcgi_params;
-		fastcgi_intercept_errors on; 
-		fastcgi_index   index.php;
-		fastcgi_param   SCRIPT_FILENAME $document_root$fastcgi_script_name;
-	}   
+        server_name abesto.net;
+        root /srv/blog;
+        index index.php;
+ 
+        location = /favicon.ico {
+                log_not_found off;
+                access_log off;
+        }
+ 
+        location = /robots.txt {
+                allow all;
+                log_not_found off;
+                access_log off;
+        }
+ 
+        location / {
+                try_files $uri $uri/ /index.php;
+        }
+ 
+        location ~ \.php$ {
+                include fastcgi_params;
+                fastcgi_intercept_errors on;
+                fastcgi_pass php;
+        }
+ 
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+                expires max;
+                log_not_found off;
+        }
 }
