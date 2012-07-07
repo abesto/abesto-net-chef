@@ -13,5 +13,11 @@
 
   "supervisor": {
     "version": "3.0a12"
+  },
+
+  "mysql": {
+    "server_root_password": "foobar",
+    "server_repl_password": "foobar",
+    "server_debian_password": "foobar"
   }
 }

@@ -1,0 +1,17 @@
+server {
+	listen 80;
+	access_log /var/log/nginx/phpmyadmin.access.log;
+	server_name phpmyadmin.stage.abesto.net;
+	root /usr/share/phpmyadmin;
+	index index.php index.html;
+	location / {
+		index index.php index.html index.htm;
+	}
+	location ~ ^/(.+\.php)$ {
+		try_files $uri =404;
+		fastcgi_pass 127.0.0.1:9000;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		include /etc/nginx/fastcgi_params;
+	}
+}
