@@ -10,7 +10,8 @@
 
     "recipe[common]",
     "recipe[python-ircd]",
-    "recipe[algo]"
+    "recipe[algo]",
+    "recipe[blog]"
   ],
 
   "supervisor": {
@@ -24,6 +25,12 @@
   },
 
   "formbuilder": {
+    "mysql_password": "replaced_in_production"
+  },
+
+  "blog": {
+    "mysql_db": "blog",
+    "mysql_user": "blog",
     "mysql_password": "replaced_in_production"
   }
 }
