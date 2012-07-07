@@ -4,8 +4,9 @@ upstream nodejs {
 
 server {
 	listen 80;
-	server_name algo.stage.abesto.net;
+	server_name algo.abesto.net;
 	access_log  /var/log/nginx/algo.access.log;
+	error_log  /var/log/nginx/algo.error.log;
 	location / { 
 		proxy_pass http://nodejs/;
 		proxy_redirect off;
