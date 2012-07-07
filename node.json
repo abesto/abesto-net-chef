@@ -11,6 +11,7 @@
     "recipe[common]",
     "recipe[python-ircd]",
     "recipe[algo]",
+    "recipe[mastermind]",
     "recipe[blog]"
   ],
 
