@@ -15,4 +15,5 @@ echo ---------------------------------------------------------------------------
 echo Bootstrapping is complete. Now you should:
 echo 1. Edit /var/chef/node.json to set passwords / apps to run
 echo 2. Run chef-solo
-echo 3. Reboot
+echo 3. Set password for user. Root SSH is disabled, and the user created has no pwd by default
+echo 4. Reboot
