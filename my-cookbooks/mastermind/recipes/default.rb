@@ -1,3 +1,10 @@
+include_recipe 'git'
+include_recipe 'nginx'
+
+directory 'srv/mastermind' do
+  user 'www-data'
+end
+
 git '/srv/mastermind' do
   repository 'git://github.com/abesto/mastermind.git'
   reference 'master'

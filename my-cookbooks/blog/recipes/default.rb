@@ -1,4 +1,8 @@
+include_recipe 'mysql::server'
 include_recipe 'database'
+include_recipe 'php'
+include_recipe 'php::module_mysql'
+include_recipe 'php-fpm'
 
 
 dir = '/srv/blog'
@@ -18,6 +22,7 @@ unless File.directory? dir
   end
   directory '/tmp/blog-dist' do
     action :delete
+    recursive true
   end
 end
 

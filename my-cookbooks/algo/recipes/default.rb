@@ -1,6 +1,7 @@
 include_recipe 'supervisor'
 include_recipe 'nodejs'
 include_recipe 'nginx'
+include_recipe 'git'
 
 dir = '/srv/algo'
 port = 3000

@@ -7,6 +7,9 @@ server {
         server_name abesto.net;
         root /srv/blog;
         index index.php;
+
+	access_log /var/log/nginx/blog.access.log;
+	error_log /var/log/nginx/blog.error.log;
  
         location = /favicon.ico {
                 log_not_found off;

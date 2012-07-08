@@ -5,7 +5,6 @@
     "recipe[screen]",
 
     "recipe[openssh]",
-    "recipe[phpmyadmin]",
     "recipe[git]",
 
     "recipe[common]",

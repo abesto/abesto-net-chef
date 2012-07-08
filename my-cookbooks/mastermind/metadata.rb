@@ -1,0 +1,2 @@
+depends 'nginx'
+depends 'git'
