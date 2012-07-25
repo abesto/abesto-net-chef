@@ -33,11 +33,17 @@ script 'Install Requirements' do
 end
 
 user 'python-ircd'
+
+cookbook_file "#{dir}/config/server.ini" do
+  source 'server.ini'
+  owner 'python-ircd'
+end
+
 supervisor_service 'python-ircd' do
   command "#{virtualenv_dir}/bin/python #{dir}/application.py"
   user 'python-ircd'
   autorestart true
-  directory dir  
+  directory dir
   redirect_stderr true
 end
 
