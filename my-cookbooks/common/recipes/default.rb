@@ -35,3 +35,9 @@ firewall_rule "http" do
   protocol :tcp
   action :allow
 end
+
+['zsh'].each do |pkg|
+  package pkg do
+    action :upgrade
+  end
+end

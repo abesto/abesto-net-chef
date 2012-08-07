@@ -40,7 +40,7 @@ end
 mysql_database_user node['blog']['mysql_user'] do
   connection mysql_connection_info
   database_name node['blog']['mysql_db']
-  action :grant 
+  action :grant
 end
 
 # Import db snapshot
