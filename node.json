@@ -6,6 +6,7 @@
 
     "recipe[openssh]",
     "recipe[git]",
+    "recipe[postfix]",
 
     "recipe[common]",
     "recipe[python-ircd]",
