@@ -28,6 +28,9 @@ end
 
 # chown directories where files will be generated
 user 'algo'
+directory "#{dir}/builtAssets" do
+  owner 'algo'
+end
 execute "chown -R algo #{dir}/public"
 
 # Start the server
