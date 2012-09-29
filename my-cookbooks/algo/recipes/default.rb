@@ -23,6 +23,7 @@ end
 execute 'npm install' do
   cwd dir
   user 'deployer'
+  environment('HOME' => '/home/deployer')
 end
 
 # chown directories where files will be generated
