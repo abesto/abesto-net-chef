@@ -40,9 +40,9 @@ supervisor_service 'algo' do
   autorestart true
   directory dir
   redirect_stderr true
-  environment(
-    'NODE_ENV' => 'production'
-  )
+  #environment(
+    #'NODE_ENV' => 'production'
+  #)
 end
 
 # Configure nginx reverse proxy
