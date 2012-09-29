@@ -12,6 +12,7 @@ directory dir do
 end
 
 # Get the code
+execute "chown -R deployer #{dir}/public"
 git dir do
   repository 'git://github.com/abesto/algo.git'
   reference 'nodejs'
@@ -36,11 +37,11 @@ supervisor_service 'algo' do
   command "node node_modules/coffee-script/bin/coffee app.coffee #{port}"
   user 'algo'
   autorestart true
-  directory dir  
+  directory dir
   redirect_stderr true
-  #environment(
-    #'NODE_ENV' => 'production'
-  #)
+  environment(
+    'NODE_ENV' => 'production'
+  )
 end
 
 # Configure nginx reverse proxy
