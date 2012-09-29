@@ -1,2 +1,0 @@
-package 'nodejs'
-package 'npm'
