@@ -24,18 +24,6 @@ cookbook_file '/etc/ssh/sshd_config' do
   notifies :reload, resources(:service => 'ssh')
 end
 
-firewall_rule "ssh" do
-  port 22
-  protocol :tcp
-  action :allow
-end
-
-firewall_rule "http" do
-  port 80
-  protocol :tcp
-  action :allow
-end
-
 ['zsh'].each do |pkg|
   package pkg do
     action :upgrade
