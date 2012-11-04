@@ -1,4 +1,4 @@
-file '/usr/local/bin/update-ufw-cloudflare' do
+cookbook_file '/usr/local/bin/update-ufw-cloudflare' do
   owner 'root'
   group 'root'
   mode 0700
