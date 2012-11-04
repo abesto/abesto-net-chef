@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function rule() {
+    echo "allow from $1 to any port $2"
+}
+
+
+curl -s https://www.cloudflare.com/ips-v4 > allowed
+echo >> allowed
+curl -s https://www.cloudflare.com/ips-v6 >> allowed
+
+yes | ufw reset --force
+ufw default allow
+
+while read ip
+do
+    echo Allowing incoming port 80 from $ip
+    ufw $(rule $ip 80)
+done < allowed
+rm allowed
+
+ufw default deny
+yes | ufw enable
