@@ -9,15 +9,15 @@ curl -s https://www.cloudflare.com/ips-v4 > allowed
 echo >> allowed
 curl -s https://www.cloudflare.com/ips-v6 >> allowed
 
-yes | ufw reset --force
-ufw default allow
+yes | /usr/sbin/ufw reset --force
+/usr/sbin/ufw default allow
 
 while read ip
 do
     echo Allowing incoming port 80 from $ip
-    ufw $(rule $ip 80)
+    /usr/sbin/ufw $(rule $ip 80)
 done < allowed
 rm allowed
 
-ufw default deny
+/usr/sbin/ufw default deny
 yes | ufw enable
