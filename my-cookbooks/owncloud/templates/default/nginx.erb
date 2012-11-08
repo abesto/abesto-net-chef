@@ -1,0 +1,44 @@
+# redirect http to https.
+server {
+  listen 80;
+  server_name owncloud.abesto.net;
+  rewrite ^ https://$server_name$request_uri? permanent;  # enforce https
+}
+
+# owncloud (ssl/tls)
+server {
+  listen 443 ssl;
+  ssl_certificate /etc/nginx/certs/server.crt;
+  ssl_certificate_key /etc/nginx/certs/server.key;
+  server_name owncloud.abesto.net;
+  root <%= @dir %>;
+  index index.php;
+  client_max_body_size 1000M; # set maximum upload size
+
+  # deny direct access
+  location ~ ^/(data|config|\.ht|db_structure\.xml|README) {
+    deny all;
+  }
+
+  # default try order
+  location / {
+    try_files $uri $uri/ @webdav;
+  }
+
+  # owncloud WebDAV
+  location @webdav {
+    include fastcgi_params;
+    fastcgi_split_path_info ^(.+\.php)(/.*)$;
+    fastcgi_pass php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_param HTTPS on;
+  }
+
+  # enable php
+  location ~ \.php$ {
+    include fastcgi_params;
+    fastcgi_param HTTPS on;
+    fastcgi_intercept_errors on;
+    fastcgi_pass php;
+  }
+}
