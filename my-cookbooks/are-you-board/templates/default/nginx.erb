@@ -1,4 +1,4 @@
-upstream nodejs {
+upstream nodejs_areyouboard {
 	server 127.0.0.1:3001;
 }
 
@@ -8,7 +8,7 @@ server {
 	access_log  /var/log/nginx/board.access.log;
 	error_log  /var/log/nginx/board.error.log;
 	location / { 
-		proxy_pass http://nodejs/;
+		proxy_pass http://nodejs_areyouboard/;
 		proxy_redirect off;
 	}
 }
