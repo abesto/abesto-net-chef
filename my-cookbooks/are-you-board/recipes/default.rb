@@ -12,7 +12,6 @@ directory dir do
 end
 
 # Get the code
-execute "chown -R deployer #{dir}/public"
 git dir do
   repository 'git://github.com/abesto/are-you-board.git'
   reference 'master'
@@ -26,12 +25,7 @@ execute 'npm install' do
   environment('HOME' => '/home/deployer')
 end
 
-# chown directories where files will be generated
 user 'areyouboard'
-directory "#{dir}/builtAssets" do
-  owner 'areyouboard'
-end
-execute "chown -R areyouboard #{dir}/public"
 
 # Start the server
 supervisor_service 'are-you-board' do
