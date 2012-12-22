@@ -16,7 +16,7 @@ git dir do
   reference 'master'
   user 'deployer'
 end
-  
+
 mysql_connection_info = {:host => "localhost", :username => 'root', :password => node['mysql']['server_root_password']}
 mysql_database 'formbuilder' do
   connection mysql_connection_info
@@ -30,7 +30,7 @@ end
 mysql_database_user 'formbuilder' do
   connection mysql_connection_info
   database_name 'formbuilder'
-  action :grant 
+  action :grant
 end
 mysql = "\"#{node['mysql']['mysql_bin']}\" -u root #{node['mysql']['server_root_password'].empty? ? '' : '-p' }\"#{node['mysql']['server_root_password']}\""
 execute 'db-schema' do

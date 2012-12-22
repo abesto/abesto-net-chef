@@ -1,0 +1,14 @@
+upstream nodejs {
+	server 127.0.0.1:3001;
+}
+
+server {
+	listen 80;
+	server_name board.abesto.net;
+	access_log  /var/log/nginx/board.access.log;
+	error_log  /var/log/nginx/board.error.log;
+	location / { 
+		proxy_pass http://nodejs/;
+		proxy_redirect off;
+	}
+}
