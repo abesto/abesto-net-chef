@@ -29,6 +29,10 @@ end
 
 user 'areyouboard'
 
+directory "#{dir}/client/static/assets" do
+  user 'areyouboard'
+end
+
 # Start the server
 supervisor_service 'are-you-board' do
   command "node app.js #{port}"
