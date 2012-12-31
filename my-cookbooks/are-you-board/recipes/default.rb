@@ -41,7 +41,8 @@ supervisor_service 'are-you-board' do
   directory dir
   redirect_stderr true
   environment(
-    'SS_ENV' => 'production'
+    'SS_ENV' => 'production',
+    'SS_PACK' => '1'
   )
 end
 
