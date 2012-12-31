@@ -3,6 +3,8 @@ include_recipe 'nodejs'
 include_recipe 'nginx'
 include_recipe 'git'
 
+package 'redis'
+
 dir = '/srv/are-you-board'
 port = 3001
 
@@ -35,7 +37,7 @@ supervisor_service 'are-you-board' do
   directory dir
   redirect_stderr true
   environment(
-    'NODE_ENV' => 'production'
+    'SS_ENV' => 'production'
   )
 end
 
