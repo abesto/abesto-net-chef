@@ -3,7 +3,7 @@ include_recipe 'nodejs'
 include_recipe 'nginx'
 include_recipe 'git'
 
-package 'redis'
+package 'redis-server'
 
 dir = '/srv/are-you-board'
 port = 3001
