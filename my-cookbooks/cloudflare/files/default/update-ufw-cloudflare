@@ -19,5 +19,8 @@ do
 done < allowed
 rm allowed
 
+/usr/sbin/ufw allow http
+/usr/sbin/ufw allow https
+
 /usr/sbin/ufw default deny
 yes | ufw enable
