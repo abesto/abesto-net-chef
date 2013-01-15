@@ -121,7 +121,7 @@ rewrite ^/wp-content/w3tc/min/(.+\.(css|js))$ /wp-content/w3tc/min/index.php?fil
         location ~ \.php$ {
                 include fastcgi_params;
                 fastcgi_intercept_errors on;
-                fastcgi_pass php;
+                fastcgi_pass php_blog;
         }
 
         location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
