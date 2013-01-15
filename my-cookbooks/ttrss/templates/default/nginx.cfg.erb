@@ -1,7 +1,7 @@
 server {
 	listen 8004;
 	server_name ttrss.abesto.net;
-	root <%= dir %>;
+	root <%= @dir %>;
 
 	access_log /var/log/nginx/ttrss.access.log;
 	error_log /var/log/nginx/ttrss.error.log;
