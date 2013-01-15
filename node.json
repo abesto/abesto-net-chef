@@ -9,10 +9,13 @@
     "recipe[postfix]",
 
     "recipe[common]",
+    "recipe[haproxy]",
+
     "recipe[python-ircd]",
     "recipe[algo]",
     "recipe[mastermind]",
     "recipe[blog]",
+    "recipe[are-you-board]",
 
     "recipe[ossec]",
     "recipe[fail2ban]"
