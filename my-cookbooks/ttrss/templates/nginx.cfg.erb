@@ -1,0 +1,16 @@
+server {
+	listen 8004;
+	server_name ttrss.abesto.net;
+	root <%= dir %>;
+
+	access_log /var/log/nginx/ttrss.access.log;
+	error_log /var/log/nginx/ttrss.error.log;
+
+	location / {
+		index index.php;
+	}
+	location ~ \.php$ {
+		fastcgi_pass 127.0.0.1:9000;
+		include /etc/nginx/fastcgi_params;
+	}
+}

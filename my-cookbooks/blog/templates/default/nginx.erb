@@ -1,5 +1,5 @@
 # Based on http://wiki.nginx.org/WordPress
-upstream php {
+upstream php_blog {
         server 127.0.0.1:9000;
 }
 
@@ -96,6 +96,7 @@ rewrite ^/wp-content/w3tc/min/(.+\.(css|js))$ /wp-content/w3tc/min/index.php?fil
 
 
         server_name abesto.net;
+        listen localhost:8000;
         root /srv/blog;
         index index.php;
 

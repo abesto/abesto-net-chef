@@ -1,5 +1,4 @@
 include_recipe 'git'
-include_recipe 'nginx'
 
 directory 'srv/mastermind' do
   user 'www-data'
@@ -10,11 +9,3 @@ git '/srv/mastermind' do
   reference 'master'
   user 'www-data'
 end
-
-template "#{node['nginx']['dir']}/sites-available/mastermind" do
-  source "nginx.erb"
-  owner "root"
-  group "root"
-  mode 0644
-end
-nginx_site 'mastermind'

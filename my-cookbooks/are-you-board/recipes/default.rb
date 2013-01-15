@@ -1,12 +1,11 @@
 include_recipe 'supervisor'
 include_recipe 'nodejs'
-include_recipe 'nginx'
 include_recipe 'git'
 
 package 'redis-server'
 
 dir = '/srv/are-you-board'
-port = 3001
+port = 8001
 
 # Create directory
 directory dir do

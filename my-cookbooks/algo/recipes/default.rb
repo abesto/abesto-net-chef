@@ -1,10 +1,9 @@
 include_recipe 'supervisor'
 include_recipe 'nodejs'
-include_recipe 'nginx'
 include_recipe 'git'
 
 dir = '/srv/algo'
-port = 3000
+port = 8003
 
 # Create directory
 directory dir do
@@ -44,16 +43,3 @@ supervisor_service 'algo' do
     #'NODE_ENV' => 'production'
   #)
 end
-
-# Configure nginx reverse proxy
-template "#{node['nginx']['dir']}/sites-available/algo" do
-  source "nginx.erb"
-  owner "root"
-  group "root"
-  mode 0644
-  variables(
-    :port => port
-  )
-end
-
-nginx_site 'algo'
