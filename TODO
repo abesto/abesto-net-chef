@@ -1,3 +1,4 @@
 - tests
 - ttrss config
 - haproxy is disabled by default in /etc/default/haproxy, must be something basic...
+- ttrss: update daemon
