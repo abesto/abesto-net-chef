@@ -9,4 +9,3 @@ apt_repository "nodejs-ppa" do
 end
 
 package 'nodejs' do action :upgrade end
-package 'npm'    do action :upgrade end
